@@ -20,6 +20,9 @@ const config: Config = {
         raisin_black: "#0f1010",
         hamburger_menu: "#161616",
       },
+      screens: {
+        "3xl": "1920px",
+      },
     },
   },
   plugins: [],

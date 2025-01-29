@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
 import { useNavMenu } from "@/app/contexts/MobileNavMenuContext";
 import Hamburger from "./Hamburger";
-import MobileNavLinks from "../MobileNavLinks";
+import NavLinks from "../NavLinks";
 
 export default function NavMenu() {
   const { isOpen } = useNavMenu();
@@ -16,7 +18,7 @@ export default function NavMenu() {
         <div className="flex justify-end items-start">
           <Hamburger />
         </div>
-        <MobileNavLinks />
+        <NavLinks />
       </div>
     </div>
   );
