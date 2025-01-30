@@ -5,6 +5,7 @@ import { useNavMenu } from "@/app/contexts/MobileNavMenuContext";
 
 export default function Hamburger() {
   const { isOpen, toggleMenu } = useNavMenu();
+
   return (
     <button onClick={toggleMenu}>
       <div className="relative flex overflow-hidden items-center justify-center transform transition-all duration-200">

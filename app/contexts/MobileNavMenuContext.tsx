@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 
 type NavMenuContextType = {
   isOpen: boolean;
@@ -17,7 +23,7 @@ export function useNavMenu() {
 function NavMenuProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = useCallback(() => setIsOpen(!isOpen), [isOpen]);
 
   return (
     <NavMenuContext.Provider value={{ isOpen, toggleMenu }}>

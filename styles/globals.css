@@ -4,15 +4,7 @@
 
 @layer utilities {
     .link {
-        @apply relative;
-    }
-
-    .link::after {
-        @apply content-[''] bg-green h-[2px] w-0 left-0 -bottom-[4px] rounded-xl absolute duration-300;
-    }
-
-    .link:hover::after {
-        @apply w-full;
+        @apply relative z-10 block uppercase px-5;
     }
 
     .mobile-link {

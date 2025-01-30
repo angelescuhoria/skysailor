@@ -16,6 +16,7 @@ const config: Config = {
         light_red: "#FF6B6B",
         crimson: "#D80032",
         green: "#2ed573",
+        dodger_blue: "#1e90ff",
         white: "#EDF2F4",
         raisin_black: "#0f1010",
         hamburger_menu: "#161616",
