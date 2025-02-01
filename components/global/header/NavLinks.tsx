@@ -1,5 +1,3 @@
-"use client";
-
 import NavLink from "./NavLink";
 import { isDesktop, isMobileOnly } from "react-device-detect";
 import { useState } from "react";

@@ -21,6 +21,7 @@ const config: Config = {
         raisin_black: "#0f1010",
         hamburger_menu: "#161616",
         dark: "#2d2d2d",
+        card: "#373737",
       },
       screens: {
         "3xl": "1920px",

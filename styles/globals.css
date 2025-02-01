@@ -12,11 +12,11 @@
     }
 
     .overlay {
-        @apply absolute top-0 left-0 w-screen h-screen opacity-60 bg-black -z-10;
+        @apply absolute inset-0 w-screen h-auto opacity-60 bg-black -z-10;
     }
 
     .background-image {
-        @apply absolute inset-0 -z-20;
+        @apply bg-cover bg-center bg-fixed absolute inset-0 -z-10;
     }
 
     [class^="h"] {
@@ -37,6 +37,18 @@
 
     .h4 {
         @apply text-xl;
+    }
+
+    .main-card {
+        @apply bg-dark shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl;
+    }
+
+    .search-controls-div {
+        @apply flex items-start opacity-80 ml-2
+    }
+
+    .search-controls-p {
+        @apply text-white ml-1 font-medium;
     }
 
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { useNavMenu } from "@/app/contexts/MobileNavMenuContext";
 import Hamburger from "./Hamburger";
@@ -11,7 +9,7 @@ export default function NavMenu() {
   return (
     <div
       className={`fixed right-0 top-0 z-10 h-screen bg-hamburger_menu p-8 pt-7 transition-all duration-700 ease-out ${
-        isOpen ? "w-2/3 opacity-100" : "w-0 opacity-0"
+        isOpen ? "w-2/3 opacity-100 visible" : "w-0 opacity-0 invisible"
       }`}
     >
       <div className="w-full h-full flex flex-col gap-28">

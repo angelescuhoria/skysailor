@@ -3,7 +3,6 @@ import { Header } from "@/components";
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Sky Sailor",
@@ -21,16 +20,8 @@ export default function Layout({
       suppressHydrationWarning
       className={`${inter.variable} ${roboto.variable}`}
     >
-      <body className="w-screen px-8">
-        <div className="background-image">
-          <Image
-            src="/images/default.jpg"
-            alt="Default background image"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </div>
+      <body className="w-screen px-4 relative">
+        <div className="background-image bg-[url('/images/default.jpg')]"></div>
         <div className="overlay"></div>
         <div className="h-auto w-full">
           <Header />

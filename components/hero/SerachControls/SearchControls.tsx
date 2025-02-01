@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import SwitchButton from "./SwitchButton";
 
 export default function SearchControls() {
   return (
-    <div className="flex flex-col mt-1 relative">
-      <button className="bg-dark py-2 rounded-t-xl">
-        <div className="flex items-start opacity-80 ml-2">
+    <div className="main-card flex flex-col mt-1 relative">
+      <button className="py-2 rounded-t-xl">
+        <div className="search-controls-div">
           <Image
             src="/icons/origin.png"
             alt="origin icon"
@@ -13,22 +14,12 @@ export default function SearchControls() {
             height={16}
             className="mt-1"
           />
-          <p className="text-white ml-1 font-medium">
-            Choose a departure location
-          </p>
+          <p className="search-controls-p">Choose a departure location</p>
         </div>
       </button>
-      <button className="bg-dark w-fit h-fit rounded-full border-[1px] border-green absolute right-8 top-5">
-        <Image
-          src="/icons/switch-arrows.png"
-          alt="switch arrows icon"
-          width={24}
-          height={24}
-          className="m-2"
-        />
-      </button>
-      <button className="bg-dark py-2 border-y-[1px] border-green">
-        <div className="flex items-start opacity-80 ml-2">
+      <SwitchButton />
+      <button className="py-2 border-y-[1px] border-green">
+        <div className="search-controls-div">
           <Image
             src="/icons/destination.png"
             alt="destination icon"
@@ -36,12 +27,12 @@ export default function SearchControls() {
             height={16}
             className="mt-1"
           />
-          <p className="text-white ml-1 font-medium">Choose destination</p>
+          <p className="search-controls-p">Choose destination</p>
         </div>
       </button>
       <div className="flex flex-row w-full">
-        <button className="bg-dark py-2 border-r-[1px] border-green rounded-bl-xl w-1/2">
-          <div className="flex items-start opacity-80 ml-2">
+        <button className="py-2 border-r-[1px] border-green w-1/2">
+          <div className="search-controls-div">
             <Image
               src="/icons/calendar.png"
               alt="calendar icon"
@@ -49,11 +40,11 @@ export default function SearchControls() {
               height={16}
               className="mt-1"
             />
-            <p className="text-white ml-1 font-medium">Choose dates</p>
+            <p className="search-controls-p">Choose dates</p>
           </div>
         </button>
-        <button className="bg-dark py-2 border-green rounded-br-xl w-1/2">
-          <div className="flex items-start opacity-80 ml-2">
+        <button className="py-2 border-green w-1/2">
+          <div className="search-controls-div">
             <Image
               src="/icons/person.png"
               alt="person icon"
@@ -61,10 +52,13 @@ export default function SearchControls() {
               height={16}
               className="mt-1"
             />
-            <p className="text-white ml-1 font-medium">1 Adult</p>
+            <p className="search-controls-p">1 Adult</p>
           </div>
         </button>
       </div>
+      <button className="py-2 bg-green rounded-b-xl text-raisin_black">
+        Search
+      </button>
     </div>
   );
 }
