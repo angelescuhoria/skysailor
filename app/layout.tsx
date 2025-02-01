@@ -20,7 +20,7 @@ export default function Layout({
       suppressHydrationWarning
       className={`${inter.variable} ${roboto.variable}`}
     >
-      <body className="w-screen min-h-screen relative px-4 md:px-8 lg:px-16 2xl:px-32">
+      <body className="w-screen min-h-screen relative overflow-x-hidden px-4 md:px-8 lg:px-16 2xl:px-32">
         <div className="background-image bg-[url('/images/default.jpg')]"></div>
         <div className="overlay"></div>
         <Header />
