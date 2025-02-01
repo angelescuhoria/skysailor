@@ -1,8 +1,11 @@
+"use client";
+
 import AnimatedSVG from "./AnimatedSVG";
+import { isDesktop } from "react-device-detect";
 
 export default function WorldMap() {
-  return (
-    <div>
+  return isDesktop ? (
+    <div className="w-full h-auto">
       <svg
         id="WorldMap"
         xmlns="http://www.w3.org/2000/svg"
@@ -1675,5 +1678,5 @@ export default function WorldMap() {
         <AnimatedSVG />
       </svg>
     </div>
-  );
+  ) : null;
 }
