@@ -20,6 +20,7 @@ const config: Config = {
         white: "#EDF2F4",
         raisin_black: "#0f1010",
         hamburger_menu: "#161616",
+        dark: "#2d2d2d",
       },
       screens: {
         "3xl": "1920px",

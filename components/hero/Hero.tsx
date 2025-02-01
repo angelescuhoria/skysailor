@@ -1,3 +1,9 @@
+import Contents from "./Contents";
+
 export default function Hero() {
-  return <></>;
+  return (
+    <section>
+      <Contents />
+    </section>
+  );
 }

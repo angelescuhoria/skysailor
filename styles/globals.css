@@ -12,6 +12,31 @@
     }
 
     .overlay {
-        @apply absolute top-0 left-0 w-screen h-screen opacity-60 bg-black z-0;
+        @apply absolute top-0 left-0 w-screen h-screen opacity-60 bg-black -z-10;
     }
+
+    .background-image {
+        @apply absolute inset-0 -z-20;
+    }
+
+    [class^="h"] {
+        @apply text-white font-bold;
+    }
+
+    .h1 {
+        @apply text-4xl;
+    }
+
+    .h2 {
+        @apply text-3xl;
+    }
+
+    .h3 {
+        @apply text-2xl;
+    }
+
+    .h4 {
+        @apply text-xl;
+    }
+
 }

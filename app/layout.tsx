@@ -16,17 +16,23 @@ export default function Layout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${roboto.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${roboto.variable}`}
+    >
       <body className="w-screen px-8">
-        <Image
-          src="/images/default.jpg"
-          alt="Default background image"
-          fill
-          className="object-cover object-center"
-          priority
-        />
+        <div className="background-image">
+          <Image
+            src="/images/default.jpg"
+            alt="Default background image"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
         <div className="overlay"></div>
-        <div className="px-8 h-auto w-full">
+        <div className="h-auto w-full">
           <Header />
           {children}
         </div>
