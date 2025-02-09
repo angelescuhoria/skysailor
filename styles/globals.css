@@ -51,4 +51,12 @@
         @apply text-white ml-1 font-medium;
     }
 
+    .feature-button {
+        @apply flex flex-row items-center gap-1 bg-green py-2 px-3 rounded-full relative;
+    }
+
+    .feature-card {
+        @apply p-2 flex flex-col gap-3;
+    }
+
 }

@@ -56,9 +56,7 @@ export default function SearchControls() {
           </div>
         </button>
       </div>
-      <button className="py-2 bg-green rounded-b-xl text-raisin_black">
-        Search
-      </button>
+      <button className="py-2 bg-green rounded-b-xl text-dark">Search</button>
     </div>
   );
 }
