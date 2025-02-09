@@ -1,8 +1,9 @@
 import { inter, roboto } from "@/assets/fonts/fonts";
-import { Header } from "@/components";
+import { Header, QueryProvider } from "@/components";
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export const metadata: Metadata = {
   title: "Sky Sailor",
@@ -24,7 +25,9 @@ export default function Layout({
         <div className="background-image bg-[url('/images/default.jpg')]"></div>
         <div className="overlay"></div>
         <Header />
-        {children}
+        <QueryProvider>
+          {children} <ReactQueryDevtools initialIsOpen={false} />
+        </QueryProvider>
       </body>
     </html>
   );
