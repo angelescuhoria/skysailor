@@ -21,16 +21,16 @@ export default function Layout({
       suppressHydrationWarning
       className={`${inter.variable} ${roboto.variable}`}
     >
-      <body className="w-screen min-h-screen relative overflow-x-hidden px-4 md:px-8 lg:px-16 2xl:px-32">
+      <body className="w-screen relative flex flex-col gap-14 px-4 md:px-8 lg:px-16 2xl:px-32 lg:gap-28">
         <div className="background-image bg-[url('/images/default.jpg')]"></div>
         <div className="overlay"></div>
         <Header />
         <QueryProvider>
-          <main className="mt-14 lg:mt-28">
+          <main>
             {children} <ReactQueryDevtools initialIsOpen={false} />
           </main>
         </QueryProvider>
-        <footer className="mt-14 lg:mt-28">
+        <footer className="">
           <Footer />
         </footer>
       </body>

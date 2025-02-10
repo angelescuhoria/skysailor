@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "@tanstack/react-form";
 import { RegisterFormProps } from "@/types/FormProps";
 import Image from "next/image";
 import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
 
 export default function LoginForm() {
-  const { toggleFormType, formType } = useAuthSwap();
+  const { toggleFormType } = useAuthSwap();
   const form = useForm<RegisterFormProps>({
     defaultValues: {
       username: "",
@@ -19,10 +19,6 @@ export default function LoginForm() {
       console.log(value);
     },
   });
-
-  useEffect(() => {
-    console.log(formType);
-  }, [formType]);
 
   return (
     <div>
@@ -88,7 +84,7 @@ export default function LoginForm() {
           </form.Field>
         </div>
         <button type="submit" className="py-2 w-full bg-green text-dark my-5">
-          Login
+          Register
         </button>
       </form>
       <div className="flex flex-row justify-center gap-5 mb-5">
