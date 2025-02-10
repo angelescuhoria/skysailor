@@ -59,4 +59,8 @@
         @apply p-2 flex flex-col gap-3;
     }
 
+    .input {
+        @apply w-full bg-transparent py-2 pl-2 text-white text-sm border-green border-[1px] focus:outline-none focus:ring-2 focus:ring-green invalid:border-red-500 invalid:focus:ring-red-500
+    }
+
 }

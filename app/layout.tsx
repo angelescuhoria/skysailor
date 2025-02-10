@@ -1,5 +1,5 @@
 import { inter, roboto } from "@/assets/fonts/fonts";
-import { Header, QueryProvider } from "@/components";
+import { Footer, Header, QueryProvider } from "@/components";
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
@@ -26,8 +26,13 @@ export default function Layout({
         <div className="overlay"></div>
         <Header />
         <QueryProvider>
-          {children} <ReactQueryDevtools initialIsOpen={false} />
+          <main className="mt-14 lg:mt-28">
+            {children} <ReactQueryDevtools initialIsOpen={false} />
+          </main>
         </QueryProvider>
+        <footer className="mt-14 lg:mt-28">
+          <Footer />
+        </footer>
       </body>
     </html>
   );

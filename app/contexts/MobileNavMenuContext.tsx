@@ -1,3 +1,5 @@
+"use client";
+
 import {
   createContext,
   ReactNode,
@@ -20,7 +22,7 @@ export function useNavMenu() {
   return context;
 }
 
-function NavMenuProvider({ children }: { children: ReactNode }) {
+export function NavMenuProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = useCallback(() => setIsOpen(!isOpen), [isOpen]);
@@ -31,5 +33,3 @@ function NavMenuProvider({ children }: { children: ReactNode }) {
     </NavMenuContext.Provider>
   );
 }
-
-export default NavMenuProvider;

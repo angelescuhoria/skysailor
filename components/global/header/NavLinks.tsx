@@ -19,24 +19,17 @@ export default function NavLinks() {
     >
       <NavLink
         setPosition={setPosition}
-        href="/public"
+        href="/"
         className={!isDesktop ? "mobile-link" : "link"}
       >
         Home
       </NavLink>
       <NavLink
         setPosition={setPosition}
-        href="/login"
+        href="/auth"
         className={!isDesktop ? "mobile-link" : "link"}
       >
-        Login
-      </NavLink>
-      <NavLink
-        setPosition={setPosition}
-        href="/signup"
-        className={!isDesktop ? "mobile-link" : "link"}
-      >
-        Sign up
+        Authentication
       </NavLink>
       <NavLink
         setPosition={setPosition}
