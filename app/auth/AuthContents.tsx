@@ -1,16 +1,12 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import LoginForm from "@/app/auth/LoginForm";
 import RegisterForm from "@/app/auth/RegisterForm";
 import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
 
 export default function AuthContents() {
   const { formType } = useAuthSwap();
-
-  useEffect(() => {
-    console.log("AuthContents formType:", formType);
-  }, [formType]);
 
   return (
     <div className="flex flex-row relative w-full min-h-[500px] overflow-hidden">
