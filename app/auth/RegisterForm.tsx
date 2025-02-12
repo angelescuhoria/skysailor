@@ -32,54 +32,74 @@ export default function LoginForm() {
         <div className="flex flex-col gap-5">
           <form.Field name="username">
             {(field) => (
-              <input
-                type="text"
-                placeholder="Red-ish squirrel"
-                name={field.name}
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
-                className="input placeholder:text-gray"
-              />
+              <div>
+                <label htmlFor={field.name} className="text-sm">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  placeholder="Red-ish squirrel"
+                  name={field.name}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                  className="input placeholder:text-gray"
+                />
+              </div>
             )}
           </form.Field>
           <form.Field name="email">
             {(field) => (
-              <input
-                type="email"
-                placeholder="joe.fernandez@example.com"
-                name={field.name}
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
-                className="input placeholder:text-gray"
-              />
+              <div>
+                <label htmlFor={field.name} className="text-sm">
+                  Email:
+                </label>
+                <input
+                  type="email"
+                  placeholder="joe.fernandez@example.com"
+                  name={field.name}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                  className="input placeholder:text-gray"
+                />
+              </div>
             )}
           </form.Field>
           <form.Field name="password">
             {(field) => (
-              <input
-                type="password"
-                placeholder="Password"
-                name={field.name}
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
-                className="input placeholder:text-gray"
-              />
+              <div>
+                <label htmlFor={field.name} className="text-sm">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name={field.name}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                  className="input placeholder:text-gray"
+                />
+              </div>
             )}
           </form.Field>
           <form.Field name="confirmPassword">
             {(field) => (
-              <input
-                type="password"
-                placeholder="Confirm password"
-                name={field.name}
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
-                className="input placeholder:text-gray"
-              />
+              <div>
+                <label htmlFor={field.name} className="text-sm">
+                  Confirm password
+                </label>
+                <input
+                  type="password"
+                  placeholder="Confirm password"
+                  name={field.name}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                  className="input placeholder:text-gray"
+                />
+              </div>
             )}
           </form.Field>
         </div>
