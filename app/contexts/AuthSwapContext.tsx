@@ -2,28 +2,33 @@
 
 import React, {
   createContext,
+  Dispatch,
   ReactNode,
-  useCallback,
+  SetStateAction,
   useContext,
   useState,
 } from "react";
 
 type SwapContextProps = {
   formType: "login" | "register";
-  toggleFormType: () => void;
-  toggleEmail: (value: string) => void;
-  togglePassword: (value: string) => void;
+  setFormType: Dispatch<SetStateAction<"register" | "login">>;
+  isAnimating: boolean;
+  setIsAnimating: Dispatch<SetStateAction<boolean>>;
   email: string;
+  setEmail: Dispatch<SetStateAction<string>>;
   password: string;
+  setPassword: Dispatch<SetStateAction<string>>;
 };
 
 const AuthSwapContext = createContext<SwapContextProps>({
   formType: "register",
-  toggleFormType: () => {},
-  toggleEmail: (value: string) => value,
-  togglePassword: (value: string) => value,
+  setFormType: () => {},
+  isAnimating: false,
+  setIsAnimating: () => {},
   email: "",
+  setEmail: () => {},
   password: "",
+  setPassword: () => {},
 });
 
 export function useAuthSwap() {
@@ -41,25 +46,19 @@ export default function AuthSwapProvider({
   const [formType, setFormType] = useState<"login" | "register">("register");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const toggleFormType = useCallback(
-    () => setFormType((prev) => (prev === "login" ? "register" : "login")),
-    [],
-  );
-  const toggleEmail = useCallback((value: string) => setEmail(value), []);
-  const togglePassword = useCallback((value: string) => {
-    setPassword(value);
-  }, []);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   return (
     <AuthSwapContext.Provider
       value={{
         formType,
-        toggleFormType,
-        toggleEmail,
-        togglePassword,
+        setFormType,
+        isAnimating,
+        setIsAnimating,
         email,
+        setEmail,
         password,
+        setPassword,
       }}
     >
       {children}

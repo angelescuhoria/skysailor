@@ -2,40 +2,98 @@
 
 import React from "react";
 import { motion } from "motion/react";
+import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
 
 export default function FlyingPlane() {
+  const { isAnimating } = useAuthSwap();
   return (
     <svg
       id="Layer_1"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="1200 0 2971.11 208.84"
-      className="absolute w-[300%]"
+      className={`absolute w-[300%] ${isAnimating ? "-scale-x-100" : ""}`} // fix
     >
-      <g id="Cloud_1">
+      <motion.g
+        id="Cloud_1"
+        initial={{ x: 1000 }}
+        animate={
+          isAnimating
+            ? {
+                x: 3200,
+              }
+            : undefined
+        }
+        transition={{
+          duration: 0.9,
+          ease: "easeInOut",
+        }}
+      >
         <path
           className="fill-gray-200"
           d="M1153.78,63.79c-2.73-13.81-14.91-24.23-29.53-24.23-11.61,0-21.65,6.59-26.69,16.2-12.09,1.28-21.5,11.53-21.5,23.96,0,13.31,10.78,24.09,24.09,24.09h52.2c11.09,0,20.08-8.99,20.08-20.08s-8.23-19.2-18.66-19.94h0ZM1152.36,95.78h-52.2c-8.86,0-16.06-7.2-16.06-16.06s7.2-16.06,16.06-16.06,16.06,7.2,16.06,16.06h8.03c0-11.09-7.49-20.38-17.67-23.19,4.04-5.4,10.45-8.93,17.67-8.93,12.18,0,22.09,9.9,22.09,22.09v2.01h6.02c6.65,0,12.05,5.4,12.05,12.05s-5.4,12.05-12.05,12.05h0ZM1152.36,95.78"
         />
-      </g>
-      <g id="Cloud_3">
+      </motion.g>
+      <motion.g
+        id="Cloud_3"
+        initial={{ x: 1300 }}
+        animate={
+          isAnimating
+            ? {
+                x: 3200,
+              }
+            : undefined
+        }
+        transition={{
+          duration: 0.9,
+          ease: "easeInOut",
+        }}
+      >
         <path
           className="fill-gray-200"
           d="M743.85,47.13c-2.73-13.81-14.91-24.23-29.53-24.23-11.61,0-21.65,6.59-26.69,16.2-12.09,1.28-21.5,11.53-21.5,23.96,0,13.31,10.78,24.09,24.09,24.09h52.2c11.09,0,20.08-8.99,20.08-20.08s-8.23-19.2-18.66-19.94h0ZM742.43,79.12h-52.2c-8.86,0-16.06-7.2-16.06-16.06s7.2-16.06,16.06-16.06,16.06,7.2,16.06,16.06h8.03c0-11.09-7.49-20.38-17.67-23.19,4.04-5.4,10.45-8.93,17.67-8.93,12.18,0,22.09,9.9,22.09,22.09v2.01h6.02c6.65,0,12.05,5.4,12.05,12.05s-5.4,12.05-12.05,12.05h0ZM742.43,79.12"
         />
-      </g>
-      <g id="Cloud_4">
+      </motion.g>
+      <motion.g
+        id="Cloud_4"
+        initial={{ x: 1400 }}
+        animate={
+          isAnimating
+            ? {
+                x: 3200,
+              }
+            : undefined
+        }
+        transition={{
+          duration: 0.9,
+          ease: "easeInOut",
+        }}
+      >
         <path
           className="fill-gray-200"
           d="M544.27,130.85c-2.73-13.81-14.91-24.23-29.53-24.23-11.61,0-21.65,6.59-26.69,16.2-12.09,1.28-21.5,11.53-21.5,23.96,0,13.31,10.78,24.09,24.09,24.09h52.2c11.09,0,20.08-8.99,20.08-20.08s-8.23-19.2-18.66-19.94h0ZM542.85,162.84h-52.2c-8.86,0-16.06-7.2-16.06-16.06s7.2-16.06,16.06-16.06,16.06,7.2,16.06,16.06h8.03c0-11.09-7.49-20.38-17.67-23.19,4.04-5.4,10.45-8.93,17.67-8.93,12.18,0,22.09,9.9,22.09,22.09v2.01h6.02c6.65,0,12.05,5.4,12.05,12.05s-5.4,12.05-12.05,12.05h0ZM542.85,162.84"
         />
-      </g>
-      <g id="Cloud_5">
+      </motion.g>
+      <motion.g
+        id="Cloud_5"
+        initial={{ x: 1700 }}
+        animate={
+          isAnimating
+            ? {
+                x: 3200,
+              }
+            : undefined
+        }
+        transition={{
+          duration: 0.9,
+          ease: "easeInOut",
+        }}
+      >
         <path
           className="fill-gray-200"
           d="M306.13,42.55c-2.73-13.81-14.91-24.23-29.53-24.23-11.61,0-21.65,6.59-26.69,16.2-12.09,1.28-21.5,11.53-21.5,23.96,0,13.31,10.78,24.09,24.09,24.09h52.2c11.09,0,20.08-8.99,20.08-20.08s-8.23-19.2-18.66-19.94h0ZM304.71,74.54h-52.2c-8.86,0-16.06-7.2-16.06-16.06s7.2-16.06,16.06-16.06,16.06,7.2,16.06,16.06h8.03c0-11.09-7.49-20.38-17.67-23.19,4.04-5.4,10.45-8.93,17.67-8.93,12.18,0,22.09,9.9,22.09,22.09v2.01h6.02c6.65,0,12.05,5.4,12.05,12.05s-5.4,12.05-12.05,12.05h0ZM304.71,74.54"
         />
-      </g>
+      </motion.g>
       <g id="Plane">
         <path
           className="fill-green"
@@ -53,7 +111,7 @@ export default function FlyingPlane() {
           className="fill-green"
           d="M2600.91,89.51c2.75,0,4.97,2.23,4.97,4.97,0,2.75-2.23,4.97-4.97,4.97h-4.97c-2.75,0-4.97-2.23-4.97-4.97,0-2.75,2.23-4.97,4.97-4.97h4.97ZM2625.77,89.51c2.75,0,4.97,2.23,4.97,4.97,0,2.75-2.23,4.97-4.97,4.97h-4.97c-2.75,0-4.97-2.23-4.97-4.97,0-2.75,2.23-4.97,4.97-4.97h4.97ZM2650.64,89.51c2.75,0,4.97,2.23,4.97,4.97,0,2.75-2.23,4.97-4.97,4.97h-4.97c-2.75,0-4.97-2.23-4.97-4.97,0-2.75,2.23-4.97,4.97-4.97h4.97ZM2645.66,89.51"
         />
-        <rect
+        <motion.rect
           className="fill-green"
           x="2726.71"
           y="80.05"
@@ -61,6 +119,21 @@ export default function FlyingPlane() {
           height="5.73"
           rx=".5"
           ry=".5"
+          animate={
+            isAnimating
+              ? {
+                  x: [-50, 600],
+                  opacity: [0, 1, 1],
+                }
+              : undefined
+          }
+          transition={{
+            delay: 0.1,
+            repeat: Infinity,
+            duration: 0.5,
+            ease: "easeInOut",
+            repeatType: "loop",
+          }}
         />
         <motion.rect
           className="fill-green"
@@ -70,8 +143,22 @@ export default function FlyingPlane() {
           height="5.73"
           rx=".5"
           ry=".5"
+          animate={
+            isAnimating
+              ? {
+                  x: [-50, 600],
+                  opacity: [0, 1, 1],
+                }
+              : undefined
+          }
+          transition={{
+            repeat: Infinity,
+            duration: 0.5,
+            ease: "easeInOut",
+            repeatType: "loop",
+          }}
         />
-        <rect
+        <motion.rect
           className="fill-green"
           x="2655.55"
           y="172.8"
@@ -79,8 +166,23 @@ export default function FlyingPlane() {
           height="5.73"
           rx=".5"
           ry=".5"
+          animate={
+            isAnimating
+              ? {
+                  x: [-50, 600],
+                  opacity: [0, 1, 1],
+                }
+              : undefined
+          }
+          transition={{
+            delay: 0.2,
+            repeat: Infinity,
+            duration: 0.5,
+            ease: "easeInOut",
+            repeatType: "loop",
+          }}
         />
-        <rect
+        <motion.rect
           className="fill-green"
           x="2726.71"
           y="122.5"
@@ -88,20 +190,63 @@ export default function FlyingPlane() {
           height="5.73"
           rx=".5"
           ry=".5"
+          animate={
+            isAnimating
+              ? {
+                  x: [-50, 600],
+                  opacity: [0, 1, 1],
+                }
+              : undefined
+          }
+          transition={{
+            delay: 0.3,
+            repeat: Infinity,
+            duration: 0.5,
+            ease: "easeInOut",
+            repeatType: "loop",
+          }}
         />
       </g>
-      <g id="Cloud_2">
+      <motion.g
+        id="Cloud_2"
+        initial={{ x: 1300 }}
+        animate={
+          isAnimating
+            ? {
+                x: 3200,
+              }
+            : undefined
+        }
+        transition={{
+          duration: 0.9,
+          ease: "easeInOut",
+        }}
+      >
         <path
           className="fill-gray-200"
           d="M911.01,142.74c-2.73-13.81-14.91-24.23-29.53-24.23-11.61,0-21.65,6.59-26.69,16.2-12.09,1.28-21.5,11.53-21.5,23.96,0,13.31,10.78,24.09,24.09,24.09h52.2c11.09,0,20.08-8.99,20.08-20.08s-8.23-19.2-18.66-19.94h0ZM909.59,174.72h-52.2c-8.86,0-16.06-7.2-16.06-16.06s7.2-16.06,16.06-16.06,16.06,7.2,16.06,16.06h8.03c0-11.09-7.49-20.38-17.67-23.19,4.04-5.4,10.45-8.93,17.67-8.93,12.18,0,22.09,9.9,22.09,22.09v2.01h6.02c6.65,0,12.05,5.4,12.05,12.05s-5.4,12.05-12.05,12.05h0ZM909.59,174.72"
         />
-      </g>
-      <g id="Cloud_6">
+      </motion.g>
+      <motion.g
+        id="Cloud_6"
+        initial={{ x: 1800 }}
+        animate={
+          isAnimating
+            ? {
+                x: 3200,
+              }
+            : undefined
+        }
+        transition={{
+          duration: 0.9,
+          ease: "easeInOut",
+        }}
+      >
         <path
           className="fill-gray-200"
           d="M77.72,138.85c-2.73-13.81-14.91-24.23-29.53-24.23-11.61,0-21.65,6.59-26.69,16.2-12.09,1.28-21.5,11.53-21.5,23.96,0,13.31,10.78,24.09,24.09,24.09h52.2c11.09,0,20.08-8.99,20.08-20.08s-8.23-19.2-18.66-19.94h0ZM76.3,170.84H24.09c-8.86,0-16.06-7.2-16.06-16.06s7.2-16.06,16.06-16.06,16.06,7.2,16.06,16.06h8.03c0-11.09-7.49-20.38-17.67-23.19,4.04-5.4,10.45-8.93,17.67-8.93,12.18,0,22.09,9.9,22.09,22.09v2.01h6.02c6.65,0,12.05,5.4,12.05,12.05s-5.4,12.05-12.05,12.05h0ZM76.3,170.84"
         />
-      </g>
+      </motion.g>
     </svg>
   );
 }

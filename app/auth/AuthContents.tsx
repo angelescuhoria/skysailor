@@ -2,14 +2,14 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "motion/react";
-import LoginForm from "@/app/auth/LoginForm";
-import RegisterForm from "@/app/auth/RegisterForm";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
 import { isDesktop } from "react-device-detect";
 import { FlyingPlane } from "@/components";
 
 export default function AuthContents() {
-  const { formType } = useAuthSwap();
+  const { formType, setIsAnimating } = useAuthSwap();
   const [zIndex, setZIndex] = useState({ login: 20, register: 30 });
   const isSwappedRef = useRef(false);
 
@@ -23,7 +23,7 @@ export default function AuthContents() {
               }
             : undefined
         }
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        transition={{ duration: 1, ease: "easeInOut" }}
         onUpdate={(latest) => {
           const progress =
             typeof latest.left === "number"
@@ -37,7 +37,10 @@ export default function AuthContents() {
             isSwappedRef.current = true;
           }
         }}
-        onAnimationComplete={() => (isSwappedRef.current = false)}
+        onAnimationComplete={() => {
+          isSwappedRef.current = false;
+          setIsAnimating(false);
+        }}
         className={`${isDesktop && "absolute w-1/2 h-full z-10"}`}
       >
         <motion.div
@@ -71,7 +74,7 @@ export default function AuthContents() {
           animate={{
             left: formType === "login" ? "0%" : "50%",
           }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           className="absolute w-1/2 h-full bg-dark z-50 flex items-center justify-center overflow-hidden"
         >
           <FlyingPlane />

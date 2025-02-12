@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
 
 export default function LoginForm() {
-  const { toggleFormType } = useAuthSwap();
+  const { setFormType, setIsAnimating } = useAuthSwap();
   const form = useForm<LoginFormProps>({
     defaultValues: {
       email: "",
@@ -73,7 +73,10 @@ export default function LoginForm() {
         <button>Forgot password?</button>
         <button
           className="relative flex flex-row items-center gap-1 text-green"
-          onClick={toggleFormType}
+          onClick={() => {
+            setFormType("register");
+            setIsAnimating(true);
+          }}
         >
           <Image
             src="/icons/form_arrow.png"
