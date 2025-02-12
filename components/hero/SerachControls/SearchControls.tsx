@@ -4,7 +4,7 @@ import SwitchButton from "./SwitchButton";
 
 export default function SearchControls() {
   return (
-    <div className="main-card flex flex-col w-full mt-1 relative">
+    <div className="main-card rounded-xl flex flex-col w-full mt-1 relative">
       <button className="py-2 rounded-t-xl">
         <div className="search-controls-div">
           <Image

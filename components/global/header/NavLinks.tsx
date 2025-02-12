@@ -2,7 +2,7 @@ import NavLink from "./NavLink";
 import { isDesktop } from "react-device-detect";
 import { useState } from "react";
 import { CursorProps } from "@/types";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function NavLinks() {
   const [position, setPosition] = useState<CursorProps>({

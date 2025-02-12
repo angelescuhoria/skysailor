@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Features() {
   return (
-    <div className="main-card w-full h-auto flex flex-col px-4 gap-5 text-white">
+    <div className="main-card rounded-xl w-full h-auto flex flex-col px-4 gap-5 text-white">
       <h2 className="h2 mt-5">
         Discover <span className="text-green">the possibilities</span> with Sky
         Sailor:

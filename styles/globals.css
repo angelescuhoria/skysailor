@@ -40,7 +40,7 @@
     }
 
     .main-card {
-        @apply bg-dark shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl;
+        @apply bg-dark shadow-[0_3px_10px_rgb(0,0,0,0.2)];
     }
 
     .search-controls-div {
