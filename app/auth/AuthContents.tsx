@@ -12,6 +12,7 @@ export default function AuthContents() {
   const { formType, setIsAnimating, setIsSwapping } = useAuthSwap();
   const [zIndex, setZIndex] = useState({ login: 20, register: 30 });
   const isSwappedRef = useRef(false);
+  const hasMounted = useRef(false);
 
   return (
     <div className="flex flex-row relative w-full min-h-[500px] overflow-hidden">
@@ -38,6 +39,10 @@ export default function AuthContents() {
           }
         }}
         onAnimationComplete={() => {
+          if (!hasMounted.current) {
+            hasMounted.current = true;
+            return;
+          }
           isSwappedRef.current = false;
           setIsAnimating(false);
           setIsSwapping((prev) => !prev);

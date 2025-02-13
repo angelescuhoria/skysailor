@@ -1,18 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "motion/react";
 import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
 
 export default function FlyingPlane() {
   const { isAnimating, isSwapping } = useAuthSwap();
+
+  useEffect(() => {
+    console.log(isSwapping);
+  }, [isSwapping]);
+
   return (
     <svg
       id="Layer_1"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="1200 0 2971.11 208.84"
-      className={`absolute w-[300%] transition-transform duration-500 ease-in-out ${!isSwapping ? "-scale-x-100" : "scale-x-100"}`}
+      className={`absolute w-[300%] transition-transform duration-500 ease-in-out ${isSwapping ? "-scale-x-100" : "scale-x-100"}`}
     >
       <motion.g
         id="Cloud_1"
