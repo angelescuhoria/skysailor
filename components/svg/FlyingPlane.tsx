@@ -5,22 +5,22 @@ import { motion } from "motion/react";
 import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
 
 export default function FlyingPlane() {
-  const { isAnimating } = useAuthSwap();
+  const { isAnimating, isSwapping } = useAuthSwap();
   return (
     <svg
       id="Layer_1"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="1200 0 2971.11 208.84"
-      className={`absolute w-[300%] ${isAnimating ? "-scale-x-100" : ""}`} // fix
+      className={`absolute w-[300%] transition-transform duration-500 ease-in-out ${!isSwapping ? "-scale-x-100" : "scale-x-100"}`}
     >
       <motion.g
         id="Cloud_1"
-        initial={{ x: 1000 }}
         animate={
           isAnimating
             ? {
-                x: 3200,
+                x: [1000, 3200],
+                opacity: [1, 1, 0],
               }
             : undefined
         }
@@ -36,11 +36,11 @@ export default function FlyingPlane() {
       </motion.g>
       <motion.g
         id="Cloud_3"
-        initial={{ x: 1300 }}
         animate={
           isAnimating
             ? {
-                x: 3200,
+                x: [1300, 3200],
+                opacity: [1, 1, 0],
               }
             : undefined
         }
@@ -56,11 +56,11 @@ export default function FlyingPlane() {
       </motion.g>
       <motion.g
         id="Cloud_4"
-        initial={{ x: 1400 }}
         animate={
           isAnimating
             ? {
-                x: 3200,
+                x: [1400, 3200],
+                opacity: [1, 1, 0],
               }
             : undefined
         }
@@ -76,11 +76,11 @@ export default function FlyingPlane() {
       </motion.g>
       <motion.g
         id="Cloud_5"
-        initial={{ x: 1700 }}
         animate={
           isAnimating
             ? {
-                x: 3200,
+                x: [1700, 3200],
+                opacity: [1, 1, 0],
               }
             : undefined
         }
@@ -209,11 +209,11 @@ export default function FlyingPlane() {
       </g>
       <motion.g
         id="Cloud_2"
-        initial={{ x: 1300 }}
         animate={
           isAnimating
             ? {
-                x: 3200,
+                x: [1000, 3200],
+                opacity: [1, 1, 0],
               }
             : undefined
         }
@@ -229,11 +229,11 @@ export default function FlyingPlane() {
       </motion.g>
       <motion.g
         id="Cloud_6"
-        initial={{ x: 1800 }}
         animate={
           isAnimating
             ? {
-                x: 3200,
+                x: [1800, 3200],
+                opacity: [1, 1, 0],
               }
             : undefined
         }

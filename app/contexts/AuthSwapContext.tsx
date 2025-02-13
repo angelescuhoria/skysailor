@@ -14,6 +14,8 @@ type SwapContextProps = {
   setFormType: Dispatch<SetStateAction<"register" | "login">>;
   isAnimating: boolean;
   setIsAnimating: Dispatch<SetStateAction<boolean>>;
+  isSwapping: boolean;
+  setIsSwapping: Dispatch<SetStateAction<boolean>>;
   email: string;
   setEmail: Dispatch<SetStateAction<string>>;
   password: string;
@@ -25,6 +27,8 @@ const AuthSwapContext = createContext<SwapContextProps>({
   setFormType: () => {},
   isAnimating: false,
   setIsAnimating: () => {},
+  isSwapping: false,
+  setIsSwapping: () => {},
   email: "",
   setEmail: () => {},
   password: "",
@@ -44,9 +48,10 @@ export default function AuthSwapProvider({
   children: ReactNode;
 }) {
   const [formType, setFormType] = useState<"login" | "register">("register");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [isSwapping, setIsSwapping] = useState<boolean>(false);
 
   return (
     <AuthSwapContext.Provider
@@ -55,6 +60,8 @@ export default function AuthSwapProvider({
         setFormType,
         isAnimating,
         setIsAnimating,
+        isSwapping,
+        setIsSwapping,
         email,
         setEmail,
         password,

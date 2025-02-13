@@ -9,7 +9,7 @@ import { isDesktop } from "react-device-detect";
 import { FlyingPlane } from "@/components";
 
 export default function AuthContents() {
-  const { formType, setIsAnimating } = useAuthSwap();
+  const { formType, setIsAnimating, setIsSwapping } = useAuthSwap();
   const [zIndex, setZIndex] = useState({ login: 20, register: 30 });
   const isSwappedRef = useRef(false);
 
@@ -40,11 +40,13 @@ export default function AuthContents() {
         onAnimationComplete={() => {
           isSwappedRef.current = false;
           setIsAnimating(false);
+          setIsSwapping((prev) => !prev);
         }}
         className={`${isDesktop && "absolute w-1/2 h-full z-10"}`}
       >
         <motion.div
-          className={`main-card w-full flex flex-col px-4 gap-5 text-white absolute ${isDesktop ? `h-full rounded-none z-${zIndex.login}` : "h-auto rounded-xl"}`}
+          className={`main-card w-full flex flex-col px-4 gap-5 text-white absolute ${isDesktop ? `h-full rounded-none` : "h-auto rounded-xl"}`}
+          style={{ zIndex: zIndex.login }}
           animate={
             !isDesktop ? { x: formType === "login" ? 0 : "120%" } : undefined
           }
@@ -55,7 +57,8 @@ export default function AuthContents() {
         </motion.div>
 
         <motion.div
-          className={`main-card w-full flex flex-col px-4 gap-5 text-white absolute ${isDesktop ? `h-full rounded-none z-${zIndex.register}` : "h-auto rounded-xl"}`}
+          className={`main-card w-full flex flex-col px-4 gap-5 text-white absolute ${isDesktop ? `h-full rounded-none` : "h-auto rounded-xl"}`}
+          style={{ zIndex: zIndex.register }}
           animate={
             !isDesktop
               ? { x: formType === "register" ? 0 : "-120%" }
