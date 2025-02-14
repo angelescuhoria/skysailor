@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "@tanstack/react-form";
 import { RegisterFormProps } from "@/types/FormProps";
 import Image from "next/image";
-import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
+import { useAuthSwap } from "@/contexts/AuthSwapContext";
 
 export default function LoginForm() {
   const { setFormType, setIsAnimating } = useAuthSwap();

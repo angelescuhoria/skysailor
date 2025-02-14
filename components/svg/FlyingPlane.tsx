@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { motion } from "motion/react";
-import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
+import { useAuthSwap } from "@/contexts/AuthSwapContext";
 
 export default function FlyingPlane() {
   const { isAnimating, isSwapping } = useAuthSwap();

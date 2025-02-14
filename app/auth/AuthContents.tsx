@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "motion/react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
-import { useAuthSwap } from "@/app/contexts/AuthSwapContext";
+import { useAuthSwap } from "@/contexts/AuthSwapContext";
 import { isDesktop } from "react-device-detect";
 import { FlyingPlane } from "@/components";
 

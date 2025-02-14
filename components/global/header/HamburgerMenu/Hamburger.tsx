@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavMenu } from "@/app/contexts/MobileNavMenuContext";
+import { useNavMenu } from "@/contexts/MobileNavMenuContext";
 
 export default function Hamburger() {
   const { isOpen, toggleMenu } = useNavMenu();

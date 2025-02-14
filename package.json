@@ -13,6 +13,7 @@
     "@tanstack/react-form": "^0.41.3",
     "@tanstack/react-query": "^5.66.0",
     "@tanstack/react-query-devtools": "^5.66.0",
+    "better-auth": "^1.1.17",
     "gsap": "npm:@gsap/simply@^3.12.5",
     "motion": "^12.4.2",
     "next": "^15.1.6",

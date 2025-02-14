@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavMenu } from "@/app/contexts/MobileNavMenuContext";
+import { useNavMenu } from "@/contexts/MobileNavMenuContext";
 import Hamburger from "./Hamburger";
 import NavLinks from "../NavLinks";
 
