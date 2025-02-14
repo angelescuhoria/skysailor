@@ -5,6 +5,7 @@ import { useForm } from "@tanstack/react-form";
 import { RegisterFormProps } from "@/types/FormProps";
 import Image from "next/image";
 import { useAuthSwap } from "@/contexts/AuthSwapContext";
+import { handleEmailChange } from "@/app/auth/actions";
 
 export default function LoginForm() {
   const { setFormType, setIsAnimating } = useAuthSwap();
@@ -30,7 +31,15 @@ export default function LoginForm() {
         }}
       >
         <div className="flex flex-col gap-5">
-          <form.Field name="username">
+          <form.Field
+            name="username"
+            validators={{
+              onChange: ({ value }) =>
+                value.length < 4 && value.length > 0
+                  ? "Username must be at least 4 characters long"
+                  : undefined,
+            }}
+          >
             {(field) => (
               <div>
                 <label htmlFor={field.name} className="text-sm">
@@ -43,12 +52,23 @@ export default function LoginForm() {
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  pattern=".{4,}"
                   className="input placeholder:text-gray"
                 />
+                {field.state.meta.errors ? (
+                  <em role="alert" className="text-sm text-red-500">
+                    {field.state.meta.errors.join(", ")}
+                  </em>
+                ) : null}
               </div>
             )}
           </form.Field>
-          <form.Field name="email">
+          <form.Field
+            name="email"
+            validators={{
+              onChange: ({ value }) => handleEmailChange(value),
+            }}
+          >
             {(field) => (
               <div>
                 <label htmlFor={field.name} className="text-sm">
@@ -61,8 +81,14 @@ export default function LoginForm() {
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                   className="input placeholder:text-gray"
                 />
+                {field.state.meta.errors ? (
+                  <em role="alert" className="text-sm text-red-500">
+                    {field.state.meta.errors.join(", ")}
+                  </em>
+                ) : null}
               </div>
             )}
           </form.Field>

@@ -1,15 +1,11 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "motion/react";
 import { useAuthSwap } from "@/contexts/AuthSwapContext";
 
 export default function FlyingPlane() {
   const { isAnimating, isSwapping } = useAuthSwap();
-
-  useEffect(() => {
-    console.log(isSwapping);
-  }, [isSwapping]);
 
   return (
     <svg
