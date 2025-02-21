@@ -18,10 +18,10 @@ export default function Layout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
+      suppressHydrationWarning={true}
       className={`${inter.variable} ${roboto.variable}`}
     >
-      <body className="w-screen relative min-h-screen flex flex-col gap-14 px-4 md:px-8 lg:px-16 2xl:px-32 lg:gap-28">
+      <body className="w-screen relative overflow-x-hidden min-h-screen flex flex-col gap-14 px-4 md:px-8 lg:px-16 2xl:px-32 lg:gap-28">
         <div className="background-image bg-[url('/images/default.jpg')]"></div>
         <div className="overlay"></div>
         <Header />

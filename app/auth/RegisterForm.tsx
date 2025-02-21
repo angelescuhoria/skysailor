@@ -1,14 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "@tanstack/react-form";
 import { RegisterFormProps } from "@/types/FormProps";
 import Image from "next/image";
 import { useAuthSwap } from "@/contexts/AuthSwapContext";
-import { handleEmailChange } from "@/app/auth/actions";
+import {
+  handleConfirmPasswordChange,
+  handleEmailChange,
+  handlePasswordChange,
+  handleUsernameChange,
+} from "@/app/auth/actions";
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const { setFormType, setIsAnimating } = useAuthSwap();
+  const [password, setPassword] = useState<string>("");
   const form = useForm<RegisterFormProps>({
     defaultValues: {
       username: "",
@@ -30,14 +36,11 @@ export default function LoginForm() {
           form.handleSubmit();
         }}
       >
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-4">
           <form.Field
             name="username"
             validators={{
-              onChange: ({ value }) =>
-                value.length < 4 && value.length > 0
-                  ? "Username must be at least 4 characters long"
-                  : undefined,
+              onChange: ({ value }) => handleUsernameChange(value),
             }}
           >
             {(field) => (
@@ -52,8 +55,9 @@ export default function LoginForm() {
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
-                  pattern=".{4,}"
+                  pattern=".{4,8}"
                   className="input placeholder:text-gray"
+                  id="username"
                 />
                 {field.state.meta.errors ? (
                   <em role="alert" className="text-sm text-red-500">
@@ -81,8 +85,9 @@ export default function LoginForm() {
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                   className="input placeholder:text-gray"
+                  pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;"
+                  id="register_email"
                 />
                 {field.state.meta.errors ? (
                   <em role="alert" className="text-sm text-red-500">
@@ -92,7 +97,15 @@ export default function LoginForm() {
               </div>
             )}
           </form.Field>
-          <form.Field name="password">
+          <form.Field
+            name="password"
+            validators={{
+              onChange: ({ value }) => {
+                setPassword(value);
+                return handlePasswordChange(value);
+              },
+            }}
+          >
             {(field) => (
               <div>
                 <label htmlFor={field.name} className="text-sm">
@@ -106,11 +119,24 @@ export default function LoginForm() {
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                   className="input placeholder:text-gray"
+                  minLength={6}
+                  id="register_password"
                 />
+                {field.state.meta.errors ? (
+                  <em role="alert" className="text-sm text-red-500">
+                    {field.state.meta.errors.join(", ")}
+                  </em>
+                ) : null}
               </div>
             )}
           </form.Field>
-          <form.Field name="confirmPassword">
+          <form.Field
+            name="confirmPassword"
+            validators={{
+              onChange: ({ value }) =>
+                handleConfirmPasswordChange(value, password),
+            }}
+          >
             {(field) => (
               <div>
                 <label htmlFor={field.name} className="text-sm">
@@ -124,7 +150,13 @@ export default function LoginForm() {
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                   className="input placeholder:text-gray"
+                  id="confirm_password"
                 />
+                {field.state.meta.errors ? (
+                  <em role="alert" className="text-sm text-red-500">
+                    {field.state.meta.errors.join(", ")}
+                  </em>
+                ) : null}
               </div>
             )}
           </form.Field>

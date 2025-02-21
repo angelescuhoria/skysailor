@@ -27,7 +27,7 @@ export default function LoginForm() {
           form.handleSubmit();
         }}
       >
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-4">
           <form.Field name="email">
             {(field) => (
               <div>
@@ -42,6 +42,7 @@ export default function LoginForm() {
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                   className="input placeholder:text-gray"
+                  id="login_email"
                 />
               </div>
             )}
@@ -60,6 +61,7 @@ export default function LoginForm() {
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                   className="input placeholder:text-gray"
+                  id="login_password"
                 />
               </div>
             )}
