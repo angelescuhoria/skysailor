@@ -1,14 +1,18 @@
 import { betterAuth } from "better-auth";
 import { username } from "better-auth/plugins";
-import { Pool } from "pg";
+import { db } from "@/utils/postgres";
 
 export const auth = betterAuth({
-  database: new Pool({
-    host: `${process.env.DB_HOST}`,
-    user: `${process.env.DB_USER}`,
-  }),
+  database: {
+    db,
+    type: "postgres",
+  },
   emailAndPassword: {
     enabled: true,
+  },
+  session: {
+    expiresIn: 60 * 60 * 24 * 7,
+    updateAge: 60 * 60 * 24,
   },
   plugins: [username()],
 });

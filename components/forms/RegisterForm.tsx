@@ -10,7 +10,9 @@ import {
   handleEmailChange,
   handlePasswordChange,
   handleUsernameChange,
-} from "@/app/auth/forms/actions";
+} from "./actions";
+import { toast, ToastContainer } from "react-toastify";
+import { handleRegisterSubmit } from "@/components/forms/serverActions";
 
 export default function RegisterForm() {
   const { setFormType, setIsAnimating } = useAuthSwap();
@@ -23,12 +25,26 @@ export default function RegisterForm() {
       confirmPassword: "",
     },
     onSubmit: async ({ value }) => {
-      console.log(value);
+      try {
+        await handleRegisterSubmit(value);
+      } catch {
+        toast("User with this email already exists.", {
+          type: "error",
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
     },
   });
 
   return (
     <div>
+      <ToastContainer />
       <form
         onSubmit={(e) => {
           e.preventDefault();
