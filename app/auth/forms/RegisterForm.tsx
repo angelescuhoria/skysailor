@@ -10,7 +10,7 @@ import {
   handleEmailChange,
   handlePasswordChange,
   handleUsernameChange,
-} from "@/app/auth/actions";
+} from "@/app/auth/forms/actions";
 
 export default function RegisterForm() {
   const { setFormType, setIsAnimating } = useAuthSwap();

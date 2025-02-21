@@ -1,3 +1,5 @@
+import { RegisterFormProps } from "@/types/FormProps";
+
 export const handleUsernameChange = (value: string) => {
   const errors: string[] = [];
   if (value.length < 4)
@@ -28,3 +30,5 @@ export const handleConfirmPasswordChange = (
 ) => {
   return confirmPassword !== password ? "Passwords do not match." : undefined;
 };
+
+export const handleRegisterSubmit = (value: RegisterFormProps) => {};
