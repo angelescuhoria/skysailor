@@ -1,4 +1,5 @@
 import { Pool } from "pg";
+import { drizzle } from "drizzle-orm/node-postgres";
 
 const port = Number(process.env.DB_PORT) || 5432;
 
@@ -10,4 +11,4 @@ const pool = new Pool({
   port,
 });
 
-export const db = pool;
+export const db = drizzle(pool);

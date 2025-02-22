@@ -12,11 +12,12 @@ import {
   handleUsernameChange,
 } from "./actions";
 import { toast, ToastContainer } from "react-toastify";
-import { handleRegisterSubmit } from "@/components/forms/serverActions";
+import { authClient } from "@/app/auth/auth-client";
 
 export default function RegisterForm() {
   const { setFormType, setIsAnimating } = useAuthSwap();
   const [password, setPassword] = useState<string>("");
+
   const form = useForm<RegisterFormProps>({
     defaultValues: {
       username: "",
@@ -26,7 +27,12 @@ export default function RegisterForm() {
     },
     onSubmit: async ({ value }) => {
       try {
-        await handleRegisterSubmit(value);
+        await authClient.signUp.email({
+          email: value.email,
+          password: value.password,
+          name: value.username,
+          callbackURL: "/",
+        });
       } catch {
         toast("User with this email already exists.", {
           type: "error",

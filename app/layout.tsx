@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Searching and purchasing flying tickets to any country",
 };
 
-export default function Layout({
+export default async function Layout({
   children,
 }: Readonly<{
   children: ReactNode;

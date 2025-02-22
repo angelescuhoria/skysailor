@@ -5,6 +5,7 @@ import { useForm } from "@tanstack/react-form";
 import { LoginFormProps } from "@/types/FormProps";
 import Image from "next/image";
 import { useAuthSwap } from "@/contexts/AuthSwapContext";
+import { authClient } from "@/app/auth/auth-client";
 
 export default function LoginForm() {
   const { setFormType, setIsAnimating } = useAuthSwap();
@@ -14,7 +15,11 @@ export default function LoginForm() {
       password: "",
     },
     onSubmit: async ({ value }) => {
-      console.log(value);
+      await authClient.signIn.email({
+        email: value.email,
+        password: value.password,
+        callbackURL: "/",
+      });
     },
   });
 
