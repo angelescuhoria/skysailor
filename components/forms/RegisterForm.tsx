@@ -77,7 +77,7 @@ export default function RegisterForm() {
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
-                  pattern=".{4,8}"
+                  pattern=".{3,25}"
                   className="input placeholder:text-gray"
                   id="username"
                 />

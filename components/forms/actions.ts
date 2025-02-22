@@ -1,11 +1,11 @@
 export const handleUsernameChange = (value: string) => {
   const errors: string[] = [];
-  if (value.length < 4)
-    errors.push("Username must be at least 4 characters long.");
+  if (value.length < 3)
+    errors.push("Username must be at least 3 characters long.");
   if (value === "admin" || value === "user" || value === "Super Admin")
     errors.push("Invalid username");
-  if (value.length > 8)
-    errors.push("Username must be at most 8 characters long.");
+  if (value.length > 25)
+    errors.push("Username must be at most 25 characters long.");
 
   return errors.length === 0 ? undefined : errors.join(", ");
 };

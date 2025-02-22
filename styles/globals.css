@@ -4,11 +4,11 @@
 
 @layer utilities {
     .link {
-        @apply relative z-10 block uppercase px-5;
+        @apply relative z-10 block uppercase px-5 whitespace-nowrap;
     }
 
     .mobile-link {
-        @apply text-white text-3xl font-bold w-fit whitespace-nowrap;
+        @apply text-white text-2xl font-bold w-fit whitespace-nowrap;
     }
 
     .overlay {

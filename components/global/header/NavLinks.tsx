@@ -3,6 +3,8 @@ import { isDesktop } from "react-device-detect";
 import { useState } from "react";
 import { CursorProps } from "@/types";
 import { motion } from "motion/react";
+import { useAuthSession } from "@/contexts/AuthSessionContext";
+import LogoutButton from "./LogoutButton";
 
 export default function NavLinks() {
   const [position, setPosition] = useState<CursorProps>({
@@ -10,9 +12,11 @@ export default function NavLinks() {
     width: 0,
     opacity: 0,
   });
+  const { session } = useAuthSession();
+
   return (
     <nav
-      className={`w-full flex justify-between ${!isDesktop ? "flex-col gap-5" : "flex-row items-center gap-2 relative px-2"}`}
+      className={`w-full flex justify-between ${!isDesktop ? "flex-col gap-3" : "flex-row items-center relative px-2"}`}
       onMouseLeave={() => {
         setPosition((prev) => ({ ...prev, opacity: 0 }));
       }}
@@ -24,13 +28,23 @@ export default function NavLinks() {
       >
         Home
       </NavLink>
-      <NavLink
-        setPosition={setPosition}
-        href="/auth"
-        className={!isDesktop ? "mobile-link" : "link"}
-      >
-        Authentication
-      </NavLink>
+      {session ? (
+        <NavLink
+          setPosition={setPosition}
+          href="/profile"
+          className={!isDesktop ? "mobile-link" : "link"}
+        >
+          My Profile
+        </NavLink>
+      ) : (
+        <NavLink
+          setPosition={setPosition}
+          href="/auth"
+          className={!isDesktop ? "mobile-link" : "link"}
+        >
+          Authentication
+        </NavLink>
+      )}
       <NavLink
         setPosition={setPosition}
         href="#"
@@ -38,6 +52,28 @@ export default function NavLinks() {
       >
         Search flights
       </NavLink>
+      <NavLink
+        setPosition={setPosition}
+        href="#"
+        className={!isDesktop ? "mobile-link" : "link"}
+      >
+        Search hotels
+      </NavLink>
+      <NavLink
+        setPosition={setPosition}
+        href="#"
+        className={!isDesktop ? "mobile-link" : "link"}
+      >
+        Car hiring
+      </NavLink>
+      {session && (
+        <LogoutButton
+          setPosition={setPosition}
+          className={!isDesktop ? "mobile-link" : "link"}
+        >
+          Logout
+        </LogoutButton>
+      )}
 
       {isDesktop && (
         <Cursor
