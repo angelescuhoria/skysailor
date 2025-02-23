@@ -69,7 +69,11 @@ export default function NavLinks() {
       {session && (
         <LogoutButton
           setPosition={setPosition}
-          className={!isDesktop ? "mobile-link" : "link"}
+          className={
+            !isDesktop
+              ? "mobile-link"
+              : "link bg-gradient-to-br from-green to-dodger_blue from-20% rounded-full py-1"
+          }
         >
           Logout
         </LogoutButton>
